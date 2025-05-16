@@ -1,6 +1,7 @@
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
 import pandas as pd
 
@@ -24,9 +25,16 @@ if add_documents:
         )
         documents.append(document)
 
+    # Create chunks
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500,
+        chunk_overlap=100
+    )
+    chunks = text_splitter.split_documents(documents)
+
     # Create new FAISS vector store
-    vector_store = FAISS.from_documents(documents, embedding=embeddings)
-    
+    vector_store = FAISS.from_documents(chunks, embedding=embeddings)
+
     # Persist the index
     vector_store.save_local(db_location)
 
