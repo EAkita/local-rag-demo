@@ -101,4 +101,4 @@ Built with:
 - [FAISS](https://github.com/facebookresearch/faiss)
 - [Ollama](https://ollama.com)
 
-Inspired by @timdettmers's minimal RAG tutorial and other local AI projects.
+Inspired by [Tech With Tim](https://github.com/techwithtim) minimal RAG tutorial and other local AI projects.
