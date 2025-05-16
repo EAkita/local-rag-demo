@@ -24,7 +24,7 @@ while True:
         break
 
     reviews = retriever.invoke(question)
-    result = chain.invoke({"reviews": "This movie was fantastic! The acting was top-notch and the plot was gripping. I couldn't take my eyes off the screen.",
+    result = chain.invoke({"reviews": reviews,
               "questions": question})
 
     print(result)
