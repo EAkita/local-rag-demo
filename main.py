@@ -5,7 +5,10 @@ from vector import retriever
 model = OllamaLLM(model="dolphin-mistral")
 
 template = """
-You are an expert in answering questions about movies. Answer the following question:
+You are an expert in answering questions about movies. 
+Answer the question truthfully and say "I don't know" if the answer is not present.
+
+Answer the following question:
 
 Here are some relevant reviews: {reviews}
 
